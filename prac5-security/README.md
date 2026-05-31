@@ -35,8 +35,7 @@ prac5-security/
 │   │   └── handler.go
 │   └── student/
 │       ├── model.go
-│       └── repo.go
-├── photos/                  
+│       └── repo.go               
 ├── go.mod
 ├── go.sum
 └── README.md
