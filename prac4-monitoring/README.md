@@ -58,8 +58,7 @@ prac4-monitoring/
 │       ├── model.go
 │       └── repo.go
 ├── monitoring/
-│   └── prometheus.yml
-├── photos/                  
+│   └── prometheus.yml            
 ├── go.mod
 ├── go.sum
 └── README.md
