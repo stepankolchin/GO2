@@ -31,8 +31,7 @@ prac3-logging/
 │       └── repo.go
 ├── pkg/
 │   └── logger/
-│       └── logger.go
-├── photos/                  
+│       └── logger.go       
 ├── go.mod
 ├── go.sum
 └── README.md
