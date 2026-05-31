@@ -36,8 +36,7 @@ prac6-web-security/
 │       └── store.go
 ├── templates/
 │   ├── profile.html
-│   └── hello.html
-├── photos/                  
+│   └── hello.html               
 ├── go.mod
 └── README.md
 ```
