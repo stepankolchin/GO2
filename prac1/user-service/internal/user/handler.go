@@ -1,0 +1,69 @@
+package user
+
+import (
+	"encoding/json"
+	"net/http"
+	"strconv"
+	"strings"
+)
+
+type Handler struct {
+	repo *Repo
+}
+
+func NewHandler(repo *Repo) *Handler {
+	return &Handler{repo: repo}
+}
+
+func (h *Handler) GetUserByID(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Ожидаемый путь: /users/{id}
+	path := strings.TrimPrefix(r.URL.Path, "/users/")
+	if path == "" || path == r.URL.Path {
+		http.Error(w, "user id is required", http.StatusBadRequest)
+		return
+	}
+
+	id, err := strconv.ParseInt(path, 10, 64)
+	if err != nil {
+		http.Error(w, "invalid user id", http.StatusBadRequest)
+		return
+	}
+
+	u, err := h.repo.GetByID(id)
+	if err != nil {
+		http.Error(w, "user not found", http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	json.NewEncoder(w).Encode(u)
+}
+
+func (h *Handler) GetAllUsers(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Ожидаемый путь: /users
+	//path := strings.TrimPrefix(r.URL.Path, "/users")
+	if r.URL.Path != "/users" {
+		http.Error(w, "Incorrect path", http.StatusBadRequest)
+		return
+	}
+
+	u, err := h.repo.GetAllUsers()
+	if err != nil {
+		http.Error(w, "There was an error", http.StatusBadRequest)
+		return
+
+	}
+
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	json.NewEncoder(w).Encode(u)
+}
