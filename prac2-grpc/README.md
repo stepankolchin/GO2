@@ -61,8 +61,7 @@ prac2-grpc/
 ├── internal/
 │   └── student/
 │       ├── data.go
-│       └── service.go
-├── photos/                  
+│       └── service.go                
 │   
 ├── go.mod
 └── go.sum
