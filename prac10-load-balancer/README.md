@@ -27,7 +27,7 @@
 ## Структура проекта
 
 ```text
-pz10-load-balancer/
+prac10-load-balancer/
 ├── services/
 │   └── tasks/
 │       ├── cmd/
