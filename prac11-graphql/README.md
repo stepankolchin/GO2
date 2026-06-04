@@ -53,7 +53,6 @@ prac11-graphql/
 │   ├── schema.graphqls
 │   ├── generated.go
 │   └── store.go
-├── photos/ 
 ├── server.go
 ├── gqlgen.yml
 ├── go.mod
