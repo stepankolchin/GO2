@@ -39,8 +39,7 @@ prac10-load-balancer/
 ├── deploy/
 │   └── lb/
 │       ├── docker-compose.yml
-│       └── nginx.conf
-├── photos/                  
+│       └── nginx.conf              
 └── README.md
 ```
 
